@@ -1,0 +1,35 @@
+Type: delay
+Showing nodes accounting for 20858.98ms, 77.38% of 26956.76ms total
+Dropped 332 nodes (cum <= 134.78ms)
+Showing top 30 nodes out of 83
+      flat  flat%   sum%        cum   cum%
+         0     0%     0% 20015.59ms 74.25%  net/http.(*conn).serve
+         0     0%     0% 17816.97ms 66.09%  net/http.(*ServeMux).ServeHTTP
+         0     0%     0% 17816.97ms 66.09%  net/http.serverHandler.ServeHTTP
+    5.60ms 0.021% 0.021% 17780.48ms 65.96%  net/http.HandlerFunc.ServeHTTP
+         0     0% 0.021% 17774.88ms 65.94%  go-api-opt/internal/api.(*Handler).handleSum
+    1.34ms 0.005% 0.026% 15747.56ms 58.42%  go-api-opt/internal/sum.ParseAndSum
+    6.66ms 0.025%  0.05% 12950.42ms 48.04%  encoding/json.Unmarshal
+   10.27ms 0.038% 0.089% 10269.79ms 38.10%  encoding/json.(*decodeState).unmarshal
+    2.89ms 0.011% 0.099% 10254.26ms 38.04%  encoding/json.(*decodeState).value
+         0     0% 0.099% 10252.46ms 38.03%  encoding/json.(*decodeState).object
+         0     0% 0.099% 10129.23ms 37.58%  encoding/json.(*decodeState).array
+    0.85ms 0.0031%   0.1% 10107.81ms 37.50%  encoding/json.(*decodeState).arrayInterface
+   83.15ms  0.31%  0.41%  9094.41ms 33.74%  runtime.mallocgc
+ 7844.75ms 29.10% 29.51%  7844.75ms 29.10%  runtime.systemstack_switch
+  423.28ms  1.57% 31.08%  5540.73ms 20.55%  encoding/json.(*decodeState).valueInterface
+ 3248.37ms 12.05% 43.13%  5328.18ms 19.77%  runtime.gcMarkDone
+         0     0% 43.13%  5292.68ms 19.63%  runtime.gcBgMarkWorker
+  123.24ms  0.46% 43.59%  5110.08ms 18.96%  encoding/json.(*decodeState).literalInterface
+ 1866.61ms  6.92% 50.51%  5049.82ms 18.73%  runtime.gcStart
+   31.14ms  0.12% 50.63%  3522.96ms 13.07%  runtime.growslice
+ 1018.85ms  3.78% 54.41%  3236.80ms 12.01%  encoding/json.(*decodeState).convertNumber
+   67.48ms  0.25% 54.66%  3204.14ms 11.89%  runtime.deductAssistCredit
+    0.10ms 0.00039% 54.66%  3136.66ms 11.64%  runtime.gcAssistAlloc
+         0     0% 54.66%  2774.86ms 10.29%  runtime.asyncPreempt
+ 2774.86ms 10.29% 64.95%  2774.86ms 10.29%  runtime.asyncPreempt2
+    6.32ms 0.023% 64.98%  2551.99ms  9.47%  encoding/json.checkValid
+    3.42ms 0.013% 64.99%  2299.41ms  8.53%  runtime.mallocgcSmallScanHeader
+   29.68ms  0.11% 65.10%  2269.40ms  8.42%  runtime.newobject
+ 1784.30ms  6.62% 71.72%  1931.44ms  7.16%  encoding/json.(*decodeState).scanWhile
+ 1525.81ms  5.66% 77.38%  1819.65ms  6.75%  encoding/json.state1

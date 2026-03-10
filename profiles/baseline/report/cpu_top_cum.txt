@@ -1,0 +1,38 @@
+File: api
+Type: cpu
+Time: 2026-03-10 13:46:33 MSK
+Duration: 10.12s, Total samples = 45.08s (445.51%)
+Showing nodes accounting for 20.55s, 45.59% of 45.08s total
+Dropped 349 nodes (cum <= 0.23s)
+Showing top 30 nodes out of 142
+      flat  flat%   sum%        cum   cum%
+         0     0%     0%     29.17s 64.71%  net/http.(*conn).serve
+         0     0%     0%     20.76s 46.05%  net/http.(*ServeMux).ServeHTTP
+         0     0%     0%     20.76s 46.05%  net/http.serverHandler.ServeHTTP
+     0.01s 0.022% 0.022%     20.75s 46.03%  go-api-opt/internal/api.(*Handler).handleSum
+         0     0% 0.022%     20.75s 46.03%  net/http.HandlerFunc.ServeHTTP
+     6.79s 15.06% 15.08%     20.30s 45.03%  go-api-opt/internal/sum.ParseAndSum
+         0     0% 15.08%     10.07s 22.34%  runtime.systemstack
+         0     0% 15.08%      9.52s 21.12%  encoding/json.Unmarshal
+         0     0% 15.08%      8.60s 19.08%  internal/poll.ignoringEINTRIO (inline)
+     8.58s 19.03% 34.12%      8.60s 19.08%  syscall.syscall
+         0     0% 34.12%      7.83s 17.37%  encoding/json.(*decodeState).object
+         0     0% 34.12%      7.83s 17.37%  encoding/json.(*decodeState).unmarshal
+         0     0% 34.12%      7.83s 17.37%  encoding/json.(*decodeState).value
+         0     0% 34.12%      7.73s 17.15%  encoding/json.(*decodeState).array
+     0.19s  0.42% 34.54%      7.70s 17.08%  encoding/json.(*decodeState).arrayInterface
+     0.01s 0.022% 34.56%      6.80s 15.08%  net/http.(*response).finishRequest
+         0     0% 34.56%      6.74s 14.95%  bufio.(*Writer).Flush
+     0.01s 0.022% 34.58%      6.60s 14.64%  internal/poll.(*FD).Write
+         0     0% 34.58%      6.60s 14.64%  net.(*conn).Write
+         0     0% 34.58%      6.60s 14.64%  net.(*netFD).Write
+         0     0% 34.58%      6.60s 14.64%  net/http.checkConnErrorWriter.Write
+         0     0% 34.58%      6.57s 14.57%  syscall.Write (inline)
+         0     0% 34.58%      6.57s 14.57%  syscall.write
+     0.09s   0.2% 34.78%      5.66s 12.56%  runtime.lock2
+         0     0% 34.78%      5.66s 12.56%  runtime.lockWithRank (inline)
+         0     0% 34.78%      5.64s 12.51%  runtime.lock
+     0.04s 0.089% 34.87%      5.57s 12.36%  encoding/json.(*decodeState).valueInterface
+     0.20s  0.44% 35.31%      5.53s 12.27%  encoding/json.(*decodeState).literalInterface
+     4.62s 10.25% 45.56%      4.62s 10.25%  runtime.usleep
+     0.01s 0.022% 45.59%      4.61s 10.23%  runtime.goschedImpl
