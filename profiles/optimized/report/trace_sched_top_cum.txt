@@ -1,0 +1,36 @@
+File: api
+Type: delay
+Showing nodes accounting for 11654.92ms, 61.21% of 19042.12ms total
+Dropped 273 nodes (cum <= 95.21ms)
+Showing top 30 nodes out of 96
+      flat  flat%   sum%        cum   cum%
+         0     0%     0% 14160.89ms 74.37%  net/http.(*conn).serve
+    0.43ms 0.0023% 0.0023% 12489.06ms 65.59%  net/http.(*ServeMux).ServeHTTP
+         0     0% 0.0023% 12489.06ms 65.59%  net/http.serverHandler.ServeHTTP
+    5.47ms 0.029% 0.031% 12458.66ms 65.43%  net/http.HandlerFunc.ServeHTTP
+    0.12ms 0.00061% 0.032% 12453.19ms 65.40%  go-api-opt/internal/api.(*Handler).handleSum
+    0.33ms 0.0017% 0.033% 12131.72ms 63.71%  go-api-opt/internal/sum.DecodeAndSum
+    8.02ms 0.042% 0.075% 10306.93ms 54.13%  encoding/json.(*Decoder).Decode
+    2.03ms 0.011% 0.086%  5994.51ms 31.48%  encoding/json.(*decodeState).unmarshal
+   87.28ms  0.46%  0.54%  5980.11ms 31.40%  encoding/json.(*decodeState).value
+         0     0%  0.54%  5972.58ms 31.37%  encoding/json.(*decodeState).object
+         0     0%  0.54%  5924.72ms 31.11%  encoding/json.(*decodeState).array
+    9.73ms 0.051%   0.6%  5750.98ms 30.20%  runtime.mallocgc
+ 5636.25ms 29.60% 30.19%  5636.25ms 29.60%  runtime.systemstack_switch
+    1.02ms 0.0054% 30.20%  4245.25ms 22.29%  encoding/json.(*Decoder).readValue
+         0     0% 30.20%  3651.75ms 19.18%  runtime.gcBgMarkWorker
+    8.87ms 0.047% 30.25%  3478.23ms 18.27%  runtime.mallocgcSmallNoscan
+ 2120.59ms 11.14% 41.38%  3469.79ms 18.22%  runtime.gcMarkDone
+ 1018.36ms  5.35% 46.73%  3386.21ms 17.78%  runtime.gcStart
+  313.55ms  1.65% 48.38%  2623.78ms 13.78%  encoding/json.(*decodeState).literalStore
+         0     0% 48.38%  2387.24ms 12.54%  runtime.asyncPreempt
+ 2387.24ms 12.54% 60.91%  2387.24ms 12.54%  runtime.asyncPreempt2
+    3.11ms 0.016% 60.93%  2136.84ms 11.22%  encoding/json.(*Decoder).refill
+    1.90ms  0.01% 60.94%  2108.48ms 11.07%  runtime.growslice
+    8.92ms 0.047% 60.99%  2094.42ms 11.00%  reflect.Value.Grow
+    0.29ms 0.0015% 60.99%  2085.49ms 10.95%  reflect.Value.grow
+    1.96ms  0.01% 61.00%  2085.02ms 10.95%  reflect.growslice
+    5.10ms 0.027% 61.03%  2037.82ms 10.70%  runtime.deductAssistCredit
+         0     0% 61.03%  2032.72ms 10.67%  runtime.gcAssistAlloc
+   32.96ms  0.17% 61.20%  1739.80ms  9.14%  runtime.newobject
+    1.40ms 0.0074% 61.21%  1716.62ms  9.01%  runtime.makeslice
