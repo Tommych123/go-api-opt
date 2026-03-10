@@ -1,0 +1,32 @@
+File: api
+Type: alloc_space
+Time: 2026-03-10 14:06:40 MSK
+Showing nodes accounting for 13089.34MB, 97.82% of 13381.57MB total
+Dropped 81 nodes (cum <= 66.91MB)
+      flat  flat%   sum%        cum   cum%
+       3MB 0.022% 0.022% 13354.62MB 99.80%  net/http.(*conn).serve
+         0     0% 0.022% 12808.94MB 95.72%  net/http.(*ServeMux).ServeHTTP
+         0     0% 0.022% 12808.94MB 95.72%  net/http.HandlerFunc.ServeHTTP
+         0     0% 0.022% 12808.94MB 95.72%  net/http.serverHandler.ServeHTTP
+  106.52MB   0.8%  0.82% 12805.27MB 95.69%  go-api-opt/internal/api.(*Handler).handleSum
+      13MB 0.097%  0.92% 12390.66MB 92.59%  go-api-opt/internal/sum.DecodeAndSum
+         0     0%  0.92% 12269.12MB 91.69%  encoding/json.(*Decoder).Decode
+         0     0%  0.92%  7794.50MB 58.25%  encoding/json.(*decodeState).unmarshal
+      20MB  0.15%  1.07%  7791.50MB 58.23%  encoding/json.(*decodeState).object
+         0     0%  1.07%  7791.50MB 58.23%  encoding/json.(*decodeState).value
+         0     0%  1.07%  7765.50MB 58.03%  encoding/json.(*decodeState).array
+         0     0%  1.07%  7765.50MB 58.03%  reflect.Value.Grow
+         0     0%  1.07%  7765.50MB 58.03%  reflect.Value.grow
+ 7765.50MB 58.03% 59.10%  7765.50MB 58.03%  reflect.growslice
+         0     0% 59.10%  4474.63MB 33.44%  encoding/json.(*Decoder).readValue
+ 4464.63MB 33.36% 92.46%  4469.63MB 33.40%  encoding/json.(*Decoder).refill
+   84.02MB  0.63% 93.09%   523.16MB  3.91%  net/http.(*conn).readRequest
+  109.03MB  0.81% 93.90%   372.09MB  2.78%  net/http.readRequest
+         0     0% 93.90%   308.09MB  2.30%  go-api-opt/internal/api.writeJSON
+         0     0% 93.90%   165.54MB  1.24%  net/textproto.(*Reader).ReadMIMEHeader (inline)
+  165.54MB  1.24% 95.14%   165.54MB  1.24%  net/textproto.readMIMEHeader
+         0     0% 95.14%   126.04MB  0.94%  net/http.(*response).WriteHeader
+  126.04MB  0.94% 96.08%   126.04MB  0.94%  net/http.Header.Clone (inline)
+         0     0% 96.08%   123.54MB  0.92%  net/http.Header.Set (inline)
+  123.54MB  0.92% 97.01%   123.54MB  0.92%  net/textproto.MIMEHeader.Set (inline)
+  108.53MB  0.81% 97.82%   108.53MB  0.81%  encoding/json.NewDecoder (inline)

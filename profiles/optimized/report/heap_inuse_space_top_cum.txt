@@ -1,0 +1,34 @@
+File: api
+Type: inuse_space
+Time: 2026-03-10 14:06:40 MSK
+Showing nodes accounting for 4625.34kB, 100% of 4625.34kB total
+      flat  flat%   sum%        cum   cum%
+         0     0%     0%  2573.34kB 55.64%  net/http.(*conn).serve
+         0     0%     0%  2059.33kB 44.52%  encoding/json.(*Decoder).Decode
+         0     0%     0%  2059.33kB 44.52%  go-api-opt/internal/api.(*Handler).handleSum
+         0     0%     0%  2059.33kB 44.52%  go-api-opt/internal/sum.DecodeAndSum
+         0     0%     0%  2059.33kB 44.52%  net/http.(*ServeMux).ServeHTTP
+         0     0%     0%  2059.33kB 44.52%  net/http.HandlerFunc.ServeHTTP
+         0     0%     0%  2059.33kB 44.52%  net/http.serverHandler.ServeHTTP
+    2052kB 44.36% 44.36%     2052kB 44.36%  runtime.allocm
+         0     0% 44.36%     2052kB 44.36%  runtime.newm
+         0     0% 44.36%     2052kB 44.36%  runtime.resetspinning
+         0     0% 44.36%     2052kB 44.36%  runtime.schedule
+         0     0% 44.36%     2052kB 44.36%  runtime.startm
+         0     0% 44.36%     2052kB 44.36%  runtime.wakep
+         0     0% 44.36%  1543.32kB 33.37%  encoding/json.(*decodeState).array
+         0     0% 44.36%  1543.32kB 33.37%  encoding/json.(*decodeState).object
+         0     0% 44.36%  1543.32kB 33.37%  encoding/json.(*decodeState).unmarshal
+         0     0% 44.36%  1543.32kB 33.37%  encoding/json.(*decodeState).value
+         0     0% 44.36%  1543.32kB 33.37%  reflect.Value.Grow
+         0     0% 44.36%  1543.32kB 33.37%  reflect.Value.grow
+ 1543.32kB 33.37% 77.73%  1543.32kB 33.37%  reflect.growslice
+         0     0% 77.73%     1539kB 33.27%  runtime.mstart
+         0     0% 77.73%     1539kB 33.27%  runtime.mstart0
+         0     0% 77.73%     1539kB 33.27%  runtime.mstart1
+         0     0% 77.73%   516.01kB 11.16%  encoding/json.(*Decoder).readValue
+  516.01kB 11.16% 88.89%   516.01kB 11.16%  encoding/json.(*Decoder).refill
+     514kB 11.11%   100%      514kB 11.11%  bufio.NewWriterSize (inline)
+         0     0%   100%      514kB 11.11%  net/http.newBufioWriterSize
+         0     0%   100%      513kB 11.09%  runtime.mcall
+         0     0%   100%      513kB 11.09%  runtime.park_m

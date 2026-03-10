@@ -1,0 +1,38 @@
+File: api
+Type: cpu
+Time: 2026-03-10 14:06:30 MSK
+Duration: 10.12s, Total samples = 47.87s (472.92%)
+Showing nodes accounting for 29.35s, 61.31% of 47.87s total
+Dropped 346 nodes (cum <= 0.24s)
+Showing top 30 nodes out of 137
+      flat  flat%   sum%        cum   cum%
+         0     0%     0%     34.81s 72.72%  net/http.(*conn).serve
+         0     0%     0%     23.25s 48.57%  net/http.(*ServeMux).ServeHTTP
+         0     0%     0%     23.25s 48.57%  net/http.serverHandler.ServeHTTP
+     0.01s 0.021% 0.021%     23.22s 48.51%  go-api-opt/internal/api.(*Handler).handleSum
+         0     0% 0.021%     23.22s 48.51%  net/http.HandlerFunc.ServeHTTP
+     8.29s 17.32% 17.34%     22.79s 47.61%  go-api-opt/internal/sum.DecodeAndSum
+     0.01s 0.021% 17.36%     11.58s 24.19%  internal/poll.ignoringEINTRIO (inline)
+    11.52s 24.07% 41.42%     11.57s 24.17%  syscall.syscall
+         0     0% 41.42%     10.61s 22.16%  encoding/json.(*Decoder).Decode
+     0.01s 0.021% 41.45%      9.68s 20.22%  net/http.(*response).finishRequest
+         0     0% 41.45%      9.66s 20.18%  bufio.(*Writer).Flush
+         0     0% 41.45%      9.56s 19.97%  internal/poll.(*FD).Write
+         0     0% 41.45%      9.56s 19.97%  net.(*conn).Write
+         0     0% 41.45%      9.56s 19.97%  net.(*netFD).Write
+         0     0% 41.45%      9.56s 19.97%  net/http.checkConnErrorWriter.Write
+         0     0% 41.45%      9.56s 19.97%  syscall.Write (inline)
+         0     0% 41.45%      9.56s 19.97%  syscall.write
+         0     0% 41.45%      8.33s 17.40%  encoding/json.(*decodeState).unmarshal
+         0     0% 41.45%      8.32s 17.38%  encoding/json.(*decodeState).object
+     0.23s  0.48% 41.93%      8.32s 17.38%  encoding/json.(*decodeState).value
+     0.24s   0.5% 42.43%      8.21s 17.15%  encoding/json.(*decodeState).array
+     0.01s 0.021% 42.45%         7s 14.62%  runtime.systemstack
+     0.41s  0.86% 43.30%      5.23s 10.93%  encoding/json.(*decodeState).literalStore
+     0.03s 0.063% 43.37%      4.75s  9.92%  runtime.lock2
+         0     0% 43.37%      4.75s  9.92%  runtime.lockWithRank (inline)
+         0     0% 43.37%      4.73s  9.88%  runtime.lock (partial-inline)
+     4.45s  9.30% 52.66%      4.45s  9.30%  runtime.asyncPreempt
+         0     0% 52.66%      4.21s  8.79%  runtime.goschedImpl
+         0     0% 52.66%      4.18s  8.73%  runtime.gopreempt_m
+     4.14s  8.65% 61.31%      4.14s  8.65%  runtime.usleep
