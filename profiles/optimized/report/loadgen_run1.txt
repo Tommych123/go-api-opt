@@ -1,0 +1,2 @@
+url=http://127.0.0.1:8080/sum workers=16 requests=500000 ok=500000 err=0 elapsed=26.504s rps=18864.7
+p50=658.334µs p95=2.069542ms p99=3.133667ms
