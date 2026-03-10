@@ -2,7 +2,6 @@ package api
 
 import (
 	"encoding/json"
-	"io"
 	"net/http"
 
 	"go-api-opt/internal/sum"
@@ -14,7 +13,6 @@ func NewHandler() *Handler {
 	return &Handler{}
 }
 
-// Register навешивает маршруты на mux
 func (h *Handler) Register(mux *http.ServeMux) {
 	mux.HandleFunc("/healthz", h.handleHealthz)
 	mux.HandleFunc("/sum", h.handleSum)
@@ -37,14 +35,8 @@ func (h *Handler) handleSum(w http.ResponseWriter, r *http.Request) {
 	}
 	defer r.Body.Close()
 
-	// Читаем body целиком в память
-	body, err := io.ReadAll(r.Body)
-	if err != nil {
-		http.Error(w, "failed to read body", http.StatusBadRequest)
-		return
-	}
-
-	res, err := sum.ParseAndSum(body)
+	// Оптимизировано: декодируем JSON напрямую из тела запроса
+	res, err := sum.DecodeAndSum(r.Body)
 	if err != nil {
 		writeJSON(w, http.StatusBadRequest, map[string]any{
 			"error": err.Error(),
@@ -58,7 +50,6 @@ func (h *Handler) handleSum(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// writeJSON единообразно пишет JSON ответ со статусом и заголовком
 func writeJSON(w http.ResponseWriter, status int, v any) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(status)

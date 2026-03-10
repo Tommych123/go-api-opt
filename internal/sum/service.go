@@ -1,68 +1,56 @@
 package sum
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
-	"math"
+	"io"
 )
+
+// Request типизированный формат входных данных
+type Request struct {
+	Numbers []int64 `json:"numbers"`
+	Repeat  int     `json:"repeat"`
+}
 
 type Result struct {
 	Sum   int64
 	Count int
 }
 
-// ParseAndSum читает numbers и repeat из JSON и считает сумму
+// ParseAndSum оставляем для бенчмарка и других вызовов с []byte
+// В оптимизированной версии делаем decode через json.Decoder в типизированную структуру
 func ParseAndSum(body []byte) (Result, error) {
-	var payload map[string]any
-	if err := json.Unmarshal(body, &payload); err != nil {
+	return DecodeAndSum(bytes.NewReader(body))
+}
+
+// DecodeAndSum оптимизированный путь без map[string]any и float64
+func DecodeAndSum(r io.Reader) (Result, error) {
+	var req Request
+
+	dec := json.NewDecoder(r)
+	dec.DisallowUnknownFields()
+
+	if err := dec.Decode(&req); err != nil {
 		return Result{}, fmt.Errorf("decode json: %w", err)
 	}
 
-	rawNums, ok := payload["numbers"]
-	if !ok {
-		return Result{}, errors.New("missing field: numbers")
+	if len(req.Numbers) == 0 {
+		return Result{}, errors.New("numbers must not be empty")
 	}
 
-	// numbers ожидаем как массив
-	arr, ok := rawNums.([]any)
-	if !ok {
-		return Result{}, errors.New("numbers must be an array")
-	}
-
-	// Делаем отдельный []int64 и копируем в него значения(для оптимизации)
-	nums := make([]int64, 0, len(arr))
-	for _, item := range arr {
-		f, ok := item.(float64)
-		// Проверяем что число целое
-		if !ok || math.Trunc(f) != f {
-			return Result{}, errors.New("numbers must contain only integers")
-		}
-		nums = append(nums, int64(f))
-	}
-
-	// repeat увеличивает CPU нагрузку чтобы профили были заметнее
-	repeat := 1
-	if rawRepeat, ok := payload["repeat"]; ok {
-		if f, ok := rawRepeat.(float64); ok && math.Trunc(f) == f {
-			repeat = int(f)
-		}
-	}
-	if repeat < 1 {
-		repeat = 1
+	if req.Repeat < 1 {
+		req.Repeat = 1
 	}
 
 	var total int64
-	for i := 0; i < repeat; i++ {
-		// Считаем сумму заново на каждом проходе
+	for i := 0; i < req.Repeat; i++ {
 		total = 0
-		for _, n := range nums {
+		for _, n := range req.Numbers {
 			total += n
 		}
 	}
 
-	return Result{
-		Sum:   total,
-		Count: len(nums),
-	}, nil
+	return Result{Sum: total, Count: len(req.Numbers)}, nil
 }
