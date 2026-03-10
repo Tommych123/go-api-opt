@@ -1,0 +1,16 @@
+goos: darwin
+goarch: arm64
+pkg: go-api-opt/internal/sum
+cpu: Apple M2
+BenchmarkParseAndSum-8   	    9540	    123244 ns/op	  31.77 MB/s	   59906 B/op	    2015 allocs/op
+BenchmarkParseAndSum-8   	    9938	    125090 ns/op	  31.31 MB/s	   59906 B/op	    2015 allocs/op
+BenchmarkParseAndSum-8   	    9741	    123671 ns/op	  31.66 MB/s	   59906 B/op	    2015 allocs/op
+BenchmarkParseAndSum-8   	    9532	    124086 ns/op	  31.56 MB/s	   59906 B/op	    2015 allocs/op
+BenchmarkParseAndSum-8   	    9850	    124025 ns/op	  31.57 MB/s	   59907 B/op	    2015 allocs/op
+BenchmarkParseAndSum-8   	    9903	    123137 ns/op	  31.80 MB/s	   59907 B/op	    2015 allocs/op
+BenchmarkParseAndSum-8   	    9594	    124327 ns/op	  31.50 MB/s	   59907 B/op	    2015 allocs/op
+BenchmarkParseAndSum-8   	    9513	    124764 ns/op	  31.39 MB/s	   59907 B/op	    2015 allocs/op
+BenchmarkParseAndSum-8   	    9840	    124933 ns/op	  31.34 MB/s	   59907 B/op	    2015 allocs/op
+BenchmarkParseAndSum-8   	    9537	    125154 ns/op	  31.29 MB/s	   59907 B/op	    2015 allocs/op
+PASS
+ok  	go-api-opt/internal/sum	13.133s
