@@ -3,6 +3,7 @@ package sum
 import (
 	"encoding/json"
 	"testing"
+	"bytes"
 )
 
 func benchPayload(tb testing.TB, count, repeat int) []byte {
@@ -34,6 +35,19 @@ func BenchmarkParseAndSum(b *testing.B) {
 
 	for i := 0; i < b.N; i++ {
 		if _, err := ParseAndSum(payload); err != nil {
+			b.Fatal(err)
+		}
+	}
+}
+
+func BenchmarkDecodeAndSum(b *testing.B) {
+	payload := benchPayload(b, 1000, 200)
+
+	b.ReportAllocs()
+	b.SetBytes(int64(len(payload)))
+
+	for i := 0; i < b.N; i++ {
+		if _, err := DecodeAndSum(bytes.NewReader(payload)); err != nil {
 			b.Fatal(err)
 		}
 	}

@@ -2,15 +2,25 @@ goos: darwin
 goarch: arm64
 pkg: go-api-opt/internal/sum
 cpu: Apple M2
-BenchmarkParseAndSum-8   	    8983	    130669 ns/op	  29.97 MB/s	   40059 B/op	      25 allocs/op
-BenchmarkParseAndSum-8   	    9172	    129379 ns/op	  30.27 MB/s	   40059 B/op	      25 allocs/op
-BenchmarkParseAndSum-8   	    8991	    136676 ns/op	  28.65 MB/s	   40059 B/op	      25 allocs/op
-BenchmarkParseAndSum-8   	    8875	    130523 ns/op	  30.00 MB/s	   40058 B/op	      25 allocs/op
-BenchmarkParseAndSum-8   	    9000	    134484 ns/op	  29.12 MB/s	   40059 B/op	      25 allocs/op
-BenchmarkParseAndSum-8   	    8708	    130957 ns/op	  29.90 MB/s	   40059 B/op	      25 allocs/op
-BenchmarkParseAndSum-8   	    9190	    130106 ns/op	  30.10 MB/s	   40058 B/op	      25 allocs/op
-BenchmarkParseAndSum-8   	    9032	    131433 ns/op	  29.79 MB/s	   40058 B/op	      25 allocs/op
-BenchmarkParseAndSum-8   	    9159	    138614 ns/op	  28.25 MB/s	   40058 B/op	      25 allocs/op
-BenchmarkParseAndSum-8   	    9127	    133171 ns/op	  29.41 MB/s	   40058 B/op	      25 allocs/op
+BenchmarkParseAndSum-8    	    7729	    133079 ns/op	  29.43 MB/s	   25475 B/op	      18 allocs/op
+BenchmarkParseAndSum-8    	    8977	    140716 ns/op	  27.83 MB/s	   25474 B/op	      18 allocs/op
+BenchmarkParseAndSum-8    	    9039	    131253 ns/op	  29.84 MB/s	   25474 B/op	      18 allocs/op
+BenchmarkParseAndSum-8    	    9423	    140904 ns/op	  27.79 MB/s	   25474 B/op	      18 allocs/op
+BenchmarkParseAndSum-8    	    9298	    135789 ns/op	  28.84 MB/s	   25474 B/op	      18 allocs/op
+BenchmarkParseAndSum-8    	    9364	    131269 ns/op	  29.83 MB/s	   25474 B/op	      18 allocs/op
+BenchmarkParseAndSum-8    	    9117	    131157 ns/op	  29.86 MB/s	   25474 B/op	      18 allocs/op
+BenchmarkParseAndSum-8    	    9453	    130929 ns/op	  29.91 MB/s	   25474 B/op	      18 allocs/op
+BenchmarkParseAndSum-8    	    9447	    130353 ns/op	  30.04 MB/s	   25474 B/op	      18 allocs/op
+BenchmarkParseAndSum-8    	    9319	    129926 ns/op	  30.14 MB/s	   25474 B/op	      18 allocs/op
+BenchmarkDecodeAndSum-8   	    9026	    131841 ns/op	  29.70 MB/s	   40058 B/op	      25 allocs/op
+BenchmarkDecodeAndSum-8   	    9340	    131499 ns/op	  29.78 MB/s	   40058 B/op	      25 allocs/op
+BenchmarkDecodeAndSum-8   	    8852	    131766 ns/op	  29.72 MB/s	   40058 B/op	      25 allocs/op
+BenchmarkDecodeAndSum-8   	    9084	    131423 ns/op	  29.80 MB/s	   40058 B/op	      25 allocs/op
+BenchmarkDecodeAndSum-8   	    9049	    131226 ns/op	  29.84 MB/s	   40059 B/op	      25 allocs/op
+BenchmarkDecodeAndSum-8   	    8971	    131744 ns/op	  29.72 MB/s	   40059 B/op	      25 allocs/op
+BenchmarkDecodeAndSum-8   	    9015	    130967 ns/op	  29.90 MB/s	   40058 B/op	      25 allocs/op
+BenchmarkDecodeAndSum-8   	    8955	    131552 ns/op	  29.77 MB/s	   40059 B/op	      25 allocs/op
+BenchmarkDecodeAndSum-8   	    9084	    131486 ns/op	  29.78 MB/s	   40059 B/op	      25 allocs/op
+BenchmarkDecodeAndSum-8   	    9217	    131503 ns/op	  29.78 MB/s	   40058 B/op	      25 allocs/op
 PASS
-ok  	go-api-opt/internal/sum	13.475s
+ok  	go-api-opt/internal/sum	25.998s

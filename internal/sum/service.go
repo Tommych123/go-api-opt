@@ -1,14 +1,12 @@
 package sum
 
 import (
-	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
 )
 
-// Request типизированный формат входных данных
 type Request struct {
 	Numbers []int64 `json:"numbers"`
 	Repeat  int     `json:"repeat"`
@@ -19,13 +17,16 @@ type Result struct {
 	Count int
 }
 
-// ParseAndSum оставляем для бенчмарка и других вызовов с []byte
-// В оптимизированной версии делаем decode через json.Decoder в типизированную структуру
+// ParseAndSum быстрый путь для []byte
 func ParseAndSum(body []byte) (Result, error) {
-	return DecodeAndSum(bytes.NewReader(body))
+	var req Request
+	if err := json.Unmarshal(body, &req); err != nil {
+		return Result{}, fmt.Errorf("decode json: %w", err)
+	}
+	return sumReq(req)
 }
 
-// DecodeAndSum оптимизированный путь без map[string]any и float64
+// DecodeAndSum потоковый путь для HTTP без io.ReadAll
 func DecodeAndSum(r io.Reader) (Result, error) {
 	var req Request
 
@@ -36,10 +37,13 @@ func DecodeAndSum(r io.Reader) (Result, error) {
 		return Result{}, fmt.Errorf("decode json: %w", err)
 	}
 
+	return sumReq(req)
+}
+
+func sumReq(req Request) (Result, error) {
 	if len(req.Numbers) == 0 {
 		return Result{}, errors.New("numbers must not be empty")
 	}
-
 	if req.Repeat < 1 {
 		req.Repeat = 1
 	}
