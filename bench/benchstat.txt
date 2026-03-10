@@ -1,0 +1,19 @@
+goos: darwin
+goarch: arm64
+pkg: go-api-opt/internal/sum
+cpu: Apple M2
+              │ bench/baseline.txt │        bench/optimized.txt         │
+              │       sec/op       │   sec/op     vs base               │
+ParseAndSum-8          124.2µ ± 1%   131.2µ ± 4%  +5.63% (p=0.000 n=10)
+
+              │ bench/baseline.txt │         bench/optimized.txt         │
+              │        B/s         │     B/s       vs base               │
+ParseAndSum-8         30.07Mi ± 1%   28.46Mi ± 4%  -5.34% (p=0.000 n=10)
+
+              │ bench/baseline.txt │         bench/optimized.txt          │
+              │        B/op        │     B/op      vs base                │
+ParseAndSum-8         58.50Ki ± 0%   39.12Ki ± 0%  -33.13% (p=0.000 n=10)
+
+              │ bench/baseline.txt │        bench/optimized.txt         │
+              │     allocs/op      │ allocs/op   vs base                │
+ParseAndSum-8         2015.00 ± 0%   25.00 ± 0%  -98.76% (p=0.000 n=10)
