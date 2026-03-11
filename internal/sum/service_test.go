@@ -1,9 +1,9 @@
 package sum
 
 import (
+	"bytes"
 	"encoding/json"
 	"testing"
-	"bytes"
 )
 
 func benchPayload(tb testing.TB, count, repeat int) []byte {
